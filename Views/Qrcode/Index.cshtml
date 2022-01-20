@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br/><br/>
+     <h2 style="color: blue">Modusoft QR Kod Üretici </h2>
+<br/>
+<br/>
+
+
+<div>
+    @using (Html.BeginForm("Index", "Qrcode", FormMethod.Post))
+    {
+        <input type="text" name="kod"/>
+        <input type="submit" value="QR Oluştur"/>
+    }
+    <br/>
+    @if (ViewBag.qrcodeimage != null)
+    {
+        <img src="@ViewBag.qrcodeimage" alt="" style="width: 400px;height: 400px"/>
+    }
+</div>
+

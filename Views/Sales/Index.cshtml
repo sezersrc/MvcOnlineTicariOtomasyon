@@ -1,0 +1,69 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Sales_Transaction>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Satışlar</h2>
+
+<table id="tbl1" class="table table-bordered" style="margin-top: 20px">
+
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Marka</th>
+        <th>Ürün</th>
+        <th>Cari</th>
+        <th>Personel</th>
+        <th>Adet</th>
+        <th>Fiyat</th>
+        <th>Toplam</th>
+        <th>Tarih</th>
+        <th>İşlemler</th>
+    </tr>
+    </thead>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            <td>@k.TransactionID</td>
+            <td>@k.Product.Brand</td>
+            <td>@k.Product.ProductName</td>
+            <td>@k.Account.AccountName  @k.Account.AccountSurname</td>
+            <td>@k.Employee.EmployeeName @k.Employee.EmployeeSurname</td>
+            <td>@k.Piece</td>
+            <td>@k.Price</td>
+            <td>@k.TotalPrice</td>
+            <td>@k.Date.ToString("dd.MM.yyyy")</td>
+            <td>
+
+                <a href="/Sales/GetSales/@k.TransactionID" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                <a href="/Sales/DetailSales/@k.TransactionID" class="btn btn-secondary"> Detay</a>
+            </td>
+
+        </tr>
+
+    }
+
+</table>
+<a href="/Sales/NewSale" class="btn btn-info"> Yeni Satış Yap</a>
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>
+
+

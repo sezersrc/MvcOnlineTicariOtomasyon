@@ -1,0 +1,42 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Message>
+
+@foreach (var x in Model)
+{
+    <div class="timeline timeline-inverse">
+
+        <!-- timeline time label -->
+
+        <div class="time-label">
+
+            <span class="bg-primary">
+
+                @x.MessageDate.ToString("g")
+
+            </span>
+
+        </div>
+
+        <!-- /.timeline-label -->
+        <!-- timeline item -->
+
+        <div>
+            
+            <div class="timeline-item">
+                <h3 class="timeline-header"><a href="#">@x.Subject</a></h3>
+                <div class="timeline-body">
+
+                    @x.MessageBody
+
+                </div>
+                
+            </div>
+
+        </div>
+
+       
+
+    </div>
+}
+
+

@@ -1,0 +1,42 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Invoices
+@{
+    ViewBag.Title = "AddInvoice";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Fatura Girişi</h2>
+<br />
+<form class="form-group" method="post">
+    <label>  Seri NO;</label>
+    @Html.TextBoxFor(x => x.InvoiceSeriNo, new { @class = "form-control" })
+    <br />
+    <label> Sıra NO;</label>
+    @Html.TextBoxFor(x => x.InvoiceOrderNumber, new { @class = "form-control" })
+    <br />
+    <label> Tarih;</label>
+    @Html.TextBoxFor(x => x.InvoiceDate, new { @class = "form-control" })
+    <br />
+    <label> Saat;</label>
+    @Html.TextBoxFor(x => x.Saat, new { @class = "form-control" })
+    <br />
+    <label> Vergi Dairesi;</label>
+    @Html.TextBoxFor(x => x.VergiDairesi, new { @class = "form-control" })
+    <br />
+    <label> Vergi NO;</label>
+    @Html.TextBoxFor(x => x.VergiNO, new { @class = "form-control" })
+    <br />
+    <label> Teslim Eden;</label>
+    @Html.TextBoxFor(x => x.TeslimEden, new { @class = "form-control" })
+    <br />
+    <label> Teslim Alan;</label>
+    @Html.TextBoxFor(x => x.TeslimAlan, new { @class = "form-control" })
+    <br />
+    @*<label> Toplam Tutar;</label>
+        @Html.TextBoxFor(x => x.InvoiceTotal, new { @class = "form-control" })
+        <br />*@
+
+    <button class="btn btn-primary"> Kaydet</button>
+</form>
+
+

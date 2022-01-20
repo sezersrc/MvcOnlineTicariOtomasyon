@@ -1,0 +1,73 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Invoices>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Faturalar</h2>
+
+<table class="table table-hover" style="margin-top: 20px">
+
+    <tr>
+        <th>Serio Sıra No</th>
+        <th>Vergi Dairesi</th>
+        <th>Vergi NO</th>
+        <th>Tarih</th>
+        <th>Saat</th>
+        <th>Toplam</th>
+        <th>Güncelle</th>
+        <th>Detay</th>
+        <th>Yeni Kalem</th>
+    </tr>
+    @foreach (var c in Model)
+    {
+
+        <tr>
+            <td>@c.InvoiceSeriNo @c.InvoiceOrderNumber</td>
+            <td>@c.VergiDairesi</td>
+            <td>@c.VergiNO</td>
+            <td>@c.InvoiceDate.ToString("d")</td>
+            <td>@c.Saat</td>
+            <td>@c.InvoiceTotal ₺</td>
+            <td>
+                <a href="/Invoice/GetInvoice/@c.InvoiceID" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
+            </td>
+            <td><a href="/Invoice/DetailInvoice/@c.InvoiceID" class="btn btn-secondary">Detay</a></td>
+           <td><a href="/Invoice/NewDetailInvoice/@c.InvoiceID" class="btn btn-secondary">Kalem</a></td>
+        </tr>
+
+    }
+
+</table>
+<a href="/Invoice/AddInvoice" class="btn btn-info"> Yeni Fatura Girişi</a>
+<br/><br/>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1" >Popup Penceresi</button>
+
+
+<div class="modal" id="Modal1">
+    <div clas="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">PopUPDiyalog EKranı</h2>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <td>Seri SıraNO</td>
+                        <td>Tutar</td>
+                    </tr>
+                    @foreach (var x in Model)
+                    {
+                        <tr>
+                            <td>@x.InvoiceSeriNo @x.InvoiceOrderNumber</td>
+                            <td>@x.InvoiceTotal</td>
+                        </tr>
+                    }
+                </table>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat</button>
+            </div>
+
+        </div>
+    </div>
+</div>

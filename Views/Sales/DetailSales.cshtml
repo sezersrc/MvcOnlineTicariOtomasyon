@@ -1,0 +1,57 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Sales_Transaction>
+@{
+    ViewBag.Title = "DetailSales";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2> Satış Detay </h2>
+<br />
+
+<table id="tbl1" class="table table-condensed">
+    <thead>
+        <tr>
+            <th>Satış ID</th>
+            <th>Ürün</th>
+            <th>Cari </th>
+            <th>Personel </th>
+            <th>Fiyat</th>
+            <th>Adet </th>
+            <th>Toplam</th>
+            <th>Tarih</th>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.TransactionID</td>
+            <td>@x.Product.ProductName</td>
+            <td>@x.Account.AccountName @x.Account.AccountSurname</td>
+            <td>@x.Employee.EmployeeName @x.Employee.EmployeeSurname</td>
+            <td>@x.Price</td>
+            <td>@x.Piece</td>
+            <td>@x.TotalPrice</td>
+            <td>@x.Date.ToString("dd.MM.yyy")</td>
+
+
+        </tr>
+    }
+</table>
+<button class="btn btn-info"><i class="fas fa-print"></i></button>
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>

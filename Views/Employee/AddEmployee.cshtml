@@ -1,0 +1,30 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Employee
+@{
+    ViewBag.Title = "AddEmployee";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Personel Ekle</h2>
+<br />
+@using (Html.BeginForm("AddEmployee", "Employee", FormMethod.Post, new {enctype = "multipart/form-data"}))
+{
+    
+        @Html.LabelFor(x => x.EmployeeName)
+        @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.EmployeeSurname)
+        @Html.TextBoxFor(x => x.EmployeeSurname, new { @class = "form-control" })
+        <br />
+        <label> Görsel;</label>
+        @*@Html.TextBoxFor(x => x.EmployeePicture, new { @class = "form-control" })*@
+        <input type="file"  name="EmployeePicture" />
+        <br />
+        <label> Departmanı;</label>
+        @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-primary"> Yeni Personel Ekle</button>
+    
+}
+
+

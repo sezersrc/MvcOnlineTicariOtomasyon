@@ -1,0 +1,24 @@
+﻿@model MvcOnlineTicariOtomasyon.Models.Classes.Account
+@{
+    ViewBag.Title = "AddAccount";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br/>
+<h2>Yeni Cari Ekle</h2>
+<br />
+<form class="form-group" method="post">
+    <label> Cari Adı </label>
+    @Html.TextBoxFor(x => x.AccountName, new { @class = "form-control" })
+    <br />
+    <label> Cari Soyadı </label>
+    @Html.TextBoxFor(x => x.AccountSurname, new { @class = "form-control" })
+    <br />
+    <label> Şehir </label>
+    @Html.TextBoxFor(x=>x.AccountCity,new {@class="form-control"})
+    <br/>
+    <label> Mail </label>
+    @Html.TextBoxFor(x=>x.AccountMail,new {@class="form-control"})
+    <br/>
+    <button class="btn btn-info">Ekle Kaydet</button>
+</form>
+

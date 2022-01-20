@@ -1,0 +1,27 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Sales_Transaction>
+@{
+    ViewBag.Title = "MyOrders";
+    Layout = "~/Views/Shared/_AccountLayout.cshtml";
+}
+<br/>
+<h2>Sipariş Geçmişim</h2>
+<br/>
+<table class="table table-bordered">
+    <tr>
+        <th>Marka</th>
+        <th>Ürün Adı</th>
+        <th>Fiyat</th>
+        <th>Tarih</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Product.Brand</td>
+            <td>@x.Product.ProductName</td>
+            <td>@x.Price ₺</td>
+            <td>@x.Date.ToString("d")</td>
+        </tr>
+    }
+</table>
+

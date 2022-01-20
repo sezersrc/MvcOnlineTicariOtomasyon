@@ -1,0 +1,43 @@
+﻿@using MvcOnlineTicariOtomasyon.Models.Classes
+@model List<Account>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br/>
+<h2>Cariler</h2>
+<br/>
+<table class="table table-hover">
+    <tr>
+        <th> Logo</th>
+        <th> Firma Adı</th>
+        <th> Ad</th>
+        <th> Soyad</th>
+        <th> Adres</th>
+        <th> İlçe</th>
+        <th> Şehir</th>
+        <th> PK</th>
+        <th> Mail</th>
+        <th> İşlemler</th>
+    </tr>
+    @foreach (var x in Model)
+    { <tr>
+          <td> <img src="~/Images/@x.AcountLogo" width="150px" height="50px" /></td>
+          <td>@x.AcountCompany</td>
+          <td>@x.AccountName</td>
+          <td>@x.AccountSurname</td>
+          <td>@x.AccountAdress</td>
+          <td>@x.AccountDistrict</td>
+          <td>@x.AccountCity</td>
+          <td>@x.APostCode</td>
+          <td>@x.AccountMail</td>
+          <td>
+              <a href="/Account/DeleteAccount/@x.AccountID" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+              <a href="/Account/GetAccount/@x.AccountID" class="btn btn-success"><i class="fas fa-edit"></i></a>
+              <a href="/Account/AccountSale/@x.AccountID" class="btn btn-secondary"><i class="fas fa-info-circle"></i></a>
+          </td>
+      </tr>
+        
+    }
+</table>
+<a href="/Account/AddAccount" class="btn btn-info"> Yeni Cari Ekle</a>
